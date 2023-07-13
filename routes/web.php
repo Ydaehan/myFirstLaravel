@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::post('/create', function(Request $req) {
 //     return response()->json(['message' => 'success'],200);
 // });
 
-Route::get('/create', function(Request $req) {
-    return view('member.create',['middleware'=>$req->middleware]);   // //views/member/create.blade.php 실행
-})->middleware(App\Http\Middleware\TestMiddleware::class);
+// Route::get('/create', function(Request $req) {
+//     return view('member.create',['middleware'=>$req->middleware]);   // //views/member/create.blade.php 실행
+// })->middleware(App\Http\Middleware\TestMiddleware::class);
+
+Route::get('/create', [TestController::Class, 'create']);
